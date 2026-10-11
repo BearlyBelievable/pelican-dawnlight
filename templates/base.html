@@ -47,7 +47,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Karla:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Karla:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap"
         />
         <link
             rel="stylesheet"
@@ -97,7 +97,7 @@
         <a class="skip-link" href="#main-content">Skip to content</a>
         {% import 'macros.html' as macros with context %} {% set page_sections =
         {} %} {% set nav_items = [] %} {% for pg in pages + hidden_pages %} {%
-        if pg.section is defined %} {% if page_sections.update({pg.section:
+        if pg.section is defined and pg.status != 'hidden' %} {% if page_sections.update({pg.section:
         page_sections.get(pg.section, []) + [pg]}) %}{% endif %} {% elif
         pg.status != 'hidden' %} {% if nav_items.append({'kind': 'link',
         'order': pg.sortorder|default('999')|string, 'page': pg}) %}{% endif %}
@@ -188,7 +188,9 @@
         </header>
         <main id="main-content">
             <div class="hero">
-                <div class="page-title">
+                <div
+                    class="page-title {% block page_title_class %}{% endblock %}"
+                >
                     {% block page_title %}{% endblock %}
                 </div>
             </div>

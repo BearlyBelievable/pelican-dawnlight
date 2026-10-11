@@ -230,6 +230,94 @@ footer {
     filter: drop-shadow(0 0 2px var(--title-fill));
 }
 
+.page-title--legal h1 {
+    font-family:
+        'Inter',
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        sans-serif;
+    font-size: clamp(2.125rem, 6vw, 3.5rem);
+    font-weight: 700;
+    color: var(--ink);
+    filter: none;
+}
+
+.legal-content {
+    font-family:
+        'Inter',
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        sans-serif;
+}
+
+.legal-content h2,
+.legal-content h3,
+.legal-content h4,
+.legal-content h5,
+.legal-content h6 {
+    color: var(--ink);
+    filter: none;
+}
+
+.legal-content > p,
+.legal-content > ul,
+.legal-content > ol {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.legal-content > p {
+    text-indent: 1.5em;
+}
+
+.legal-content > h2,
+.legal-content > h3 {
+    margin-left: 0;
+}
+
+#content .toc {
+    background: var(--accordion-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1em 1.5em;
+    margin: 0 0 1.5em;
+    width: fit-content;
+    max-width: 100%;
+}
+
+#content .toctitle {
+    display: block;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5em;
+}
+
+#content .toc ul {
+    list-style: disc;
+    margin: 0;
+    padding-left: 1.25em;
+}
+
+#content .toc ul ul {
+    padding-left: 1.25em;
+}
+
+#content .toc li {
+    margin: 0.25em 0;
+}
+
+#content .toc a {
+    text-decoration: none;
+    color: var(--ink-soft);
+}
+
+#content .toc a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
 main {
     margin-bottom: 72px;
 }
@@ -1077,15 +1165,27 @@ details > :not(summary) {
     appearance: none;
 }
 
-.btn:hover,
+.btn:not(:disabled):hover,
 .btn-link:hover .btn,
 .btn-link:focus-visible .btn {
     filter: brightness(110%);
 }
 
-.btn:active {
+.btn:not(:disabled):active {
     filter: brightness(90%);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Application form */
+
+.radio-group,
+.checkbox-group {
+    border-radius: var(--radius);
 }
 
 /* Blog: article list & pagination */

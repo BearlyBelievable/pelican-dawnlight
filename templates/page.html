@@ -1,7 +1,10 @@
 {% extends "base.html" %} {% block title %}{{ page.title|striptags }}{% endblock
 %} {% block meta_description %}{{ page.summary|striptags }}{% endblock %} {%
-block page_title %}
+block page_title_class %}{% if page.legal %}page-title--legal{% endif %}{%
+endblock %} {% block page_title %}
 <h1>{{ page.title }}</h1>
 {% endblock %} {% block content %}
-<section id="content">{{ page.content }}</section>
+<section id="content" class="{% if page.legal %}legal-content{% endif %}">
+    {{ page.content }}
+</section>
 {% endblock %}
