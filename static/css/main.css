@@ -14,7 +14,7 @@
     --accent-light: #b6358b;
     --accent-dark: #f3a3c6;
     --accent: light-dark(var(--accent-light), var(--accent-dark));
-    --accent-ink: light-dark(var(--palette-near-white), #241521);
+    --accent-ink: light-dark(var(--palette-near-white), #2e2a45);
 
     --surface: light-dark(#e3f1ff, #1f1e3c);
     --surface-2: light-dark(#f8f3da, #3e2339);
@@ -183,6 +183,10 @@ a > .pill::after {
 a:has(> .pill)::after,
 .btn-link::after {
     content: none;
+}
+
+.btn-link {
+    text-decoration: none;
 }
 
 h1,
@@ -1403,6 +1407,23 @@ details > :not(summary) {
 .btn-link:hover .btn,
 .btn-link:focus-visible .btn {
     filter: brightness(110%);
+}
+
+.back-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0 12px;
+    margin-top: 20px;
+}
+
+.back-links .btn {
+    margin-top: 0;
+}
+
+.back-links > .index-link {
+    margin-right: auto;
 }
 
 .btn:not(:disabled):active {

@@ -3,6 +3,7 @@ block title %}{{ author.name|striptags }}{% endblock %} {% block page_title %}
 <h1>{{ author.name }}</h1>
 {% endblock %} {% block content %}
 <section id="content">
+    {% set index_url = AUTHORS_URL|default('authors.html') if 'authors' in DIRECT_TEMPLATES and AUTHORS_SAVE_AS|default('authors.html') else '' %}
     <ul class="article-list">
         {% for article in articles_page.object_list %}
         <li>{{ macros.article_item(article) }}</li>
@@ -10,5 +11,6 @@ block title %}{{ author.name|striptags }}{% endblock %} {% block page_title %}
     </ul>
     {{ macros.pagination(articles_paginator, articles_page,
     articles_previous_page, articles_next_page) }}
+    {{ macros.back_buttons('View all authors', index_url) }}
 </section>
 {% endblock %}

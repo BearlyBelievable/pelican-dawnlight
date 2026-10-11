@@ -1,3 +1,15 @@
+{% macro back_buttons(index_label='', index_url='') %}
+<div class="back-links">
+    {% if index_url %}
+    <a class="index-link" href="{{ SITEURL }}/{{ index_url }}"
+        >{{ index_label }}</a
+    >
+    {% endif %}
+    <a class="btn-link" href="{{ SITEURL }}/blog/archives"
+        ><div class="btn">Back to blog</div></a
+    >
+</div>
+{% endmacro %}
 {% macro article_item(article) %}
 <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
 <p class="article-meta">

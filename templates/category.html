@@ -3,6 +3,7 @@ block title %}{{ category.name|striptags }}{% endblock %} {% block page_title %}
 <h1>{{ category.name }}</h1>
 {% endblock %} {% block content %}
 <section id="content">
+    {% set index_url = CATEGORIES_URL|default('categories.html') if 'categories' in DIRECT_TEMPLATES and CATEGORIES_SAVE_AS|default('categories.html') else '' %}
     <ul class="article-list">
         {% for article in articles_page.object_list %}
         <li>{{ macros.article_item(article) }}</li>
@@ -10,5 +11,6 @@ block title %}{{ category.name|striptags }}{% endblock %} {% block page_title %}
     </ul>
     {{ macros.pagination(articles_paginator, articles_page,
     articles_previous_page, articles_next_page) }}
+    {{ macros.back_buttons('View all categories', index_url) }}
 </section>
 {% endblock %}
