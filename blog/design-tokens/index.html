@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <meta
+            name="theme-color"
+            content="#f8f0cb"
+            media="(prefers-color-scheme: light)"
+        />
+        <meta
+            name="theme-color"
+            content="#f2c48f"
+            media="(prefers-color-scheme: dark)"
+        />
+        <title>Design tokens | Dawnlight</title>
+        <meta
+            name="description"
+            content="Colors and the border radius are CSS variables."
+        />
+        <link rel="icon" href="https://bearlybelievable.github.io/pelican-dawnlight/images/favicon.svg" />
+        <meta property="og:site_name" content="Dawnlight" />
+        <meta
+            property="og:title"
+            content="Design tokens"
+        />
+        <meta
+            property="og:description"
+            content="Colors and the border radius are CSS variables."
+        />
+        <meta
+            property="og:type"
+            content="article"
+        />
+        <link rel="canonical" href="https://bearlybelievable.github.io/pelican-dawnlight/blog/design-tokens/" />
+        <meta property="og:url" content="https://bearlybelievable.github.io/pelican-dawnlight/blog/design-tokens/" />
+          <meta
+            name="twitter:card"
+            content="summary"
+        />
+        <meta name="twitter:title" content="Design tokens" />
+        <meta
+            name="twitter:description"
+            content="Colors and the border radius are CSS variables."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Karla:wght@400;500;600;700&family=Inter:wght@400;600;700&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://bearlybelievable.github.io/pelican-dawnlight/theme/css/main.css"
+        />
+        <script
+            defer
+            src="https://bearlybelievable.github.io/pelican-dawnlight/theme/js/main.js"
+        ></script>
+        <style>
+            a[href^='http']:not([href^="http://bearlybelievable.github.io/pelican-dawnlight/"]):not([href^="https://bearlybelievable.github.io/pelican-dawnlight/"]):not(:has(> img)) {
+                --link-ext: '' / var(--link-ext-label, '');
+            }
+        </style>
+        <script type="application/json" id="theme-strings">
+{
+    "copyCode": "Copy code",
+    "copied": "Copied",
+    "copyFailed": "Copy failed",
+    "externalLink": " (external link)",
+    "scrollableTable": "Scrollable table"
+}        </script>
+         <link
+            href="https://bearlybelievable.github.io/pelican-dawnlight/feeds/all.rss.xml"
+            type="application/rss+xml"
+            rel="alternate"
+            title="Dawnlight RSS Feed"
+        />
+ <meta
+    property="article:published_time"
+    content="2026-07-12T00:00:00+00:00"
+/>
+ <meta property="article:section" content="Guides" />
+ <meta property="article:tag" content="design" />
+          <script>
+            ;(function () {
+                var root = document.documentElement
+                root.classList.add('js')
+                window.syncTheme = function () {
+                    try {
+                        var stored = localStorage.getItem('theme-mode')
+                        if (stored === 'dark' || stored === 'light') {
+                            root.setAttribute('data-theme', stored)
+                        }
+                    } catch (e) {}
+                    var toggle = document.getElementById('themeToggle')
+                    if (toggle) {
+                        toggle.checked =
+                            (root.getAttribute('data-theme') ||
+                                (matchMedia('(prefers-color-scheme: dark)')
+                                    .matches
+                                    ? 'dark'
+                                    : 'light')) === 'dark'
+                    }
+                }
+                window.syncTheme()
+            })()
+        </script>
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+                                                             <header class="site-header">
+            <div class="navbar">
+                <a
+                    class="logo"
+                    href="https://bearlybelievable.github.io/pelican-dawnlight/"
+                    ><img
+                        class="logo-image"
+                        src="https://bearlybelievable.github.io/pelican-dawnlight/images/logo.svg"
+                        alt="Dawnlight"
+                    /></a
+                >
+                <nav class="nav-links" id="navLinks" aria-label="Primary">
+                    <a
+                        href="https://bearlybelievable.github.io/pelican-dawnlight/"
+                        class=""
+                        ><span class="pill">Home</span></a
+                    >
+        <div class="dropdown">
+    <button
+        class="dropdown-toggle"
+        type="button"
+        aria-expanded="false"
+    >
+        Blog
+    </button>
+    <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/blog/category/announcements/"
+                class=""
+                ><div class="pill">Announcements</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/blog/category/guides/"
+                class=""
+                ><div class="pill">Guides</div></a
+            >
+             <a class="dropdown-view-all" href="https://bearlybelievable.github.io/pelican-dawnlight/blog/archives"
+                ><div class="pill">View all</div></a
+            >
+        </div>
+    </div>
+</div>
+     <div class="dropdown">
+    <button
+        class="dropdown-toggle"
+        type="button"
+        aria-expanded="false"
+    >
+        Markdown
+    </button>
+    <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/headings-and-text/"
+                class=""
+                ><div class="pill">Headings and text</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/lists-and-quotes/"
+                class=""
+                ><div class="pill">Lists and quotes</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/code-blocks/"
+                class=""
+                ><div class="pill">Code blocks</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/tables/"
+                class=""
+                ><div class="pill">Tables</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/images-and-links/"
+                class=""
+                ><div class="pill">Images and links</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/footnotes-and-toc/"
+                class=""
+                ><div class="pill">Footnotes and table of contents</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/accordions/"
+                class=""
+                ><div class="pill">Accordions</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/everything/"
+                class=""
+                ><div class="pill">Everything at once</div></a
+            >
+         </div>
+    </div>
+</div>
+     <div class="dropdown">
+    <button
+        class="dropdown-toggle"
+        type="button"
+        aria-expanded="false"
+    >
+        Components
+    </button>
+    <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/forms-and-buttons/"
+                class=""
+                ><div class="pill">Forms and buttons</div></a
+            >
+         </div>
+    </div>
+</div>
+                       <a href="https://github.com/BearlyBelievable/pelican-dawnlight"
+                        ><span class="pill">GitHub</span></a
+                    >
+                </nav>
+                <div class="navbar-actions">
+                    <div class="theme-toggle">
+                        <input
+                            type="checkbox"
+                            role="switch"
+                            id="themeToggle"
+                            autocomplete="off"
+                            class="theme-toggle-input"
+                            aria-label="Dark mode"
+                        />
+                        <label for="themeToggle" class="theme-toggle-slider">
+                            <span class="theme-toggle-thumb"></span>
+                        </label>
+                        <script>
+                            window.syncTheme()
+                        </script>
+                    </div>
+                    <button
+                        class="nav-toggle"
+                        id="navToggle"
+                        type="button"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded="false"
+                        aria-controls="navLinks"
+                    >
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main id="main-content">
+            <div class="hero">
+                <div
+                    class="page-title "
+                >
+<h1>Design tokens</h1>
+                </div>
+            </div>
+<section id="content">
+    <p class="article-meta">
+By
+        <a href="https://bearlybelievable.github.io/pelican-dawnlight/blog/author/dawnlight/">Dawnlight</a
+        > &middot; Published
+        <time datetime="2026-07-12T00:00:00+00:00"
+            >July 12, 2026</time
+        >
+    </p>
+    <p>Colors and the border radius are CSS variables at the top of <code>main.css</code>. You can
+override them in a stylesheet loaded after the theme.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">--accent-light</span><span class="p">:</span><span class="w"> </span><span class="mh">#2a7de1</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--radius</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>      <div class="article-footer">
+        <p class="article-meta article-category">
+            Posted in
+            <a href="https://bearlybelievable.github.io/pelican-dawnlight/blog/category/guides/"
+                >Guides</a
+            >
+        </p>
+         <p class="card-label" id="article-tags-label">Tags</p>
+        <ul class="term-list article-tags" aria-labelledby="article-tags-label">
+            <li><a href="https://bearlybelievable.github.io/pelican-dawnlight/blog/tag/design/">design</a></li>
+        </ul>
+    </div>
+</section>
+        </main>
+<footer>
+    <nav class="footer-nav" aria-label="Footer">
+        <a href="https://bearlybelievable.github.io/pelican-dawnlight/">Home</a>
+        <a href="https://bearlybelievable.github.io/pelican-dawnlight/terms/">Terms of use</a>
+        <a href="https://bearlybelievable.github.io/pelican-dawnlight/privacy/">Privacy policy</a>
+    </nav>
+    <p class="footer-note">
+        Built with <a rel="nofollow" href="https://getpelican.com/">Pelican</a>.
+    </p>
+</footer>    </body>
+</html>

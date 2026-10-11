@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <meta
+            name="theme-color"
+            content="#f8f0cb"
+            media="(prefers-color-scheme: light)"
+        />
+        <meta
+            name="theme-color"
+            content="#f2c48f"
+            media="(prefers-color-scheme: dark)"
+        />
+        <title>Code blocks | Dawnlight</title>
+        <meta
+            name="description"
+            content="Inline code looks like pelican -s docs/pelicanconf.py. No language 1 2plain text with no highlighting and some indentation Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15import json class ApplicationForm: """A form built from a list of fields.""" def …"
+        />
+        <link rel="icon" href="https://bearlybelievable.github.io/pelican-dawnlight/images/favicon.svg" />
+        <meta property="og:site_name" content="Dawnlight" />
+        <meta
+            property="og:title"
+            content="Code blocks"
+        />
+        <meta
+            property="og:description"
+            content="Inline code looks like pelican -s docs/pelicanconf.py. No language 1 2plain text with no highlighting and some indentation Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15import json class ApplicationForm: """A form built from a list of fields.""" def …"
+        />
+        <meta
+            property="og:type"
+            content="website"
+        />
+        <link rel="canonical" href="https://bearlybelievable.github.io/pelican-dawnlight/code-blocks/" />
+        <meta property="og:url" content="https://bearlybelievable.github.io/pelican-dawnlight/code-blocks/" />
+          <meta
+            name="twitter:card"
+            content="summary"
+        />
+        <meta name="twitter:title" content="Code blocks" />
+        <meta
+            name="twitter:description"
+            content="Inline code looks like pelican -s docs/pelicanconf.py. No language 1 2plain text with no highlighting and some indentation Python 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15import json class ApplicationForm: """A form built from a list of fields.""" def …"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Karla:wght@400;500;600;700&family=Inter:wght@400;600;700&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://bearlybelievable.github.io/pelican-dawnlight/theme/css/main.css"
+        />
+        <script
+            defer
+            src="https://bearlybelievable.github.io/pelican-dawnlight/theme/js/main.js"
+        ></script>
+        <style>
+            a[href^='http']:not([href^="http://bearlybelievable.github.io/pelican-dawnlight/"]):not([href^="https://bearlybelievable.github.io/pelican-dawnlight/"]):not(:has(> img)) {
+                --link-ext: '' / var(--link-ext-label, '');
+            }
+        </style>
+        <script type="application/json" id="theme-strings">
+{
+    "copyCode": "Copy code",
+    "copied": "Copied",
+    "copyFailed": "Copy failed",
+    "externalLink": " (external link)",
+    "scrollableTable": "Scrollable table"
+}        </script>
+         <link
+            href="https://bearlybelievable.github.io/pelican-dawnlight/feeds/all.rss.xml"
+            type="application/rss+xml"
+            rel="alternate"
+            title="Dawnlight RSS Feed"
+        />
+          <script>
+            ;(function () {
+                var root = document.documentElement
+                root.classList.add('js')
+                window.syncTheme = function () {
+                    try {
+                        var stored = localStorage.getItem('theme-mode')
+                        if (stored === 'dark' || stored === 'light') {
+                            root.setAttribute('data-theme', stored)
+                        }
+                    } catch (e) {}
+                    var toggle = document.getElementById('themeToggle')
+                    if (toggle) {
+                        toggle.checked =
+                            (root.getAttribute('data-theme') ||
+                                (matchMedia('(prefers-color-scheme: dark)')
+                                    .matches
+                                    ? 'dark'
+                                    : 'light')) === 'dark'
+                    }
+                }
+                window.syncTheme()
+            })()
+        </script>
+    </head>
+
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+                                                             <header class="site-header">
+            <div class="navbar">
+                <a
+                    class="logo"
+                    href="https://bearlybelievable.github.io/pelican-dawnlight/"
+                    ><img
+                        class="logo-image"
+                        src="https://bearlybelievable.github.io/pelican-dawnlight/images/logo.svg"
+                        alt="Dawnlight"
+                    /></a
+                >
+                <nav class="nav-links" id="navLinks" aria-label="Primary">
+                    <a
+                        href="https://bearlybelievable.github.io/pelican-dawnlight/"
+                        class=""
+                        ><span class="pill">Home</span></a
+                    >
+        <div class="dropdown">
+    <button
+        class="dropdown-toggle"
+        type="button"
+        aria-expanded="false"
+    >
+        Blog
+    </button>
+    <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/blog/category/announcements/"
+                class=""
+                ><div class="pill">Announcements</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/blog/category/guides/"
+                class=""
+                ><div class="pill">Guides</div></a
+            >
+             <a class="dropdown-view-all" href="https://bearlybelievable.github.io/pelican-dawnlight/blog/archives"
+                ><div class="pill">View all</div></a
+            >
+        </div>
+    </div>
+</div>
+     <div class="dropdown">
+    <button
+        class="dropdown-toggle active"
+        type="button"
+        aria-expanded="false"
+    >
+        Markdown
+    </button>
+    <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/headings-and-text/"
+                class=""
+                ><div class="pill">Headings and text</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/lists-and-quotes/"
+                class=""
+                ><div class="pill">Lists and quotes</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/code-blocks/"
+                class="active"
+aria-current="page"
+                ><div class="pill">Code blocks</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/tables/"
+                class=""
+                ><div class="pill">Tables</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/images-and-links/"
+                class=""
+                ><div class="pill">Images and links</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/footnotes-and-toc/"
+                class=""
+                ><div class="pill">Footnotes and table of contents</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/accordions/"
+                class=""
+                ><div class="pill">Accordions</div></a
+            >
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/everything/"
+                class=""
+                ><div class="pill">Everything at once</div></a
+            >
+         </div>
+    </div>
+</div>
+     <div class="dropdown">
+    <button
+        class="dropdown-toggle"
+        type="button"
+        aria-expanded="false"
+    >
+        Components
+    </button>
+    <div class="dropdown-menu">
+        <div class="dropdown-menu-inner">
+             <a
+                href="https://bearlybelievable.github.io/pelican-dawnlight/forms-and-buttons/"
+                class=""
+                ><div class="pill">Forms and buttons</div></a
+            >
+         </div>
+    </div>
+</div>
+                       <a href="https://github.com/BearlyBelievable/pelican-dawnlight"
+                        ><span class="pill">GitHub</span></a
+                    >
+                </nav>
+                <div class="navbar-actions">
+                    <div class="theme-toggle">
+                        <input
+                            type="checkbox"
+                            role="switch"
+                            id="themeToggle"
+                            autocomplete="off"
+                            class="theme-toggle-input"
+                            aria-label="Dark mode"
+                        />
+                        <label for="themeToggle" class="theme-toggle-slider">
+                            <span class="theme-toggle-thumb"></span>
+                        </label>
+                        <script>
+                            window.syncTheme()
+                        </script>
+                    </div>
+                    <button
+                        class="nav-toggle"
+                        id="navToggle"
+                        type="button"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded="false"
+                        aria-controls="navLinks"
+                    >
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main id="main-content">
+            <div class="hero">
+                <div
+                    class="page-title "
+                >
+<h1>Code blocks</h1>
+                </div>
+            </div>
+<section id="content" class="">
+    <p>Inline code looks like <code>pelican -s docs/pelicanconf.py</code>.</p>
+<h2 id="no-language">No language</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>plain text with no highlighting
+    and some indentation
+</code></pre></div></td></tr></table></div>
+
+<h2 id="python">Python</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ApplicationForm</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A form built from a list of fields.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="n">fields</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read the fields from a JSON file.&quot;&quot;&quot;</span>
+        <span class="c1"># Open the file and parse it</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+
+<h2 id="javascript">JavaScript</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">toggle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;themeToggle&#39;</span><span class="p">)</span>
+<span class="nx">toggle</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">toggle</span><span class="p">.</span><span class="nx">checked</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;light&#39;</span>
+<span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+
+<h2 id="shell">Shell</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>docs/requirements.txt
+pelican<span class="w"> </span>-s<span class="w"> </span>docs/pelicanconf.py<span class="w"> </span>--listen
+</code></pre></div></td></tr></table></div>
+
+<h2 id="json-and-yaml">JSON and YAML</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;demo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">]}</span>
+</code></pre></div></td></tr></table></div>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">site</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
+<span class="w">  </span><span class="nt">pages</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">about</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">legal</span>
+</code></pre></div></td></tr></table></div>
+
+<h2 id="html-and-css">HTML and CSS</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">.</span><span class="nc">btn</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--radius</span><span class="p">);</span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--accent</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+<h2 id="comments">Comments</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># A comment on its own line</span>
+<span class="n">timeout</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># A comment at the end of a line</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers and return the result.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div></td></tr></table></div>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// A single-line comment</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="cm">/* A block comment */</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * A documentation comment.</span>
+<span class="cm"> */</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># A comment in a shell script</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span><span class="c1"># Another comment</span>
+</code></pre></div></td></tr></table></div>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c">/* A comment in a stylesheet */</span>
+<span class="p">.</span><span class="nc">btn</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">&lt;!-- A comment in markup --&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+
+<h2 id="diff">Diff</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gd">--- a/config.py</span>
+<span class="gi">+++ b/config.py</span>
+<span class="gu">@@ -1,4 +1,4 @@</span>
+<span class="w"> </span>DEBUG = False
+<span class="gd">-TIMEOUT = 30</span>
+<span class="gi">+TIMEOUT = 60</span>
+<span class="w"> </span>RETRIES = 3
+<span class="gd">-NAME = &quot;old&quot;</span>
+<span class="gi">+NAME = &quot;new&quot;</span>
+</code></pre></div></td></tr></table></div>
+
+<h2 id="long-line">Long line</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>This is a very long line: 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789
+</code></pre></div></td></tr></table></div>
+</section>
+        </main>
+<footer>
+    <nav class="footer-nav" aria-label="Footer">
+        <a href="https://bearlybelievable.github.io/pelican-dawnlight/">Home</a>
+        <a href="https://bearlybelievable.github.io/pelican-dawnlight/terms/">Terms of use</a>
+        <a href="https://bearlybelievable.github.io/pelican-dawnlight/privacy/">Privacy policy</a>
+    </nav>
+    <p class="footer-note">
+        Built with <a rel="nofollow" href="https://getpelican.com/">Pelican</a>.
+    </p>
+</footer>    </body>
+</html>
