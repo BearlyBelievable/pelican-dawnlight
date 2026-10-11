@@ -899,6 +899,11 @@ html:not(.js) .content-card table:not(.highlighttable) {
     font-weight: 700;
 }
 
+.nav-links a:active .pill {
+    filter: brightness(90%);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .dropdown-menu a:hover .pill,
 .dropdown-menu a:focus-visible .pill,
 .dropdown-menu a.active .pill {
@@ -928,11 +933,6 @@ html:not(.js) .content-card table:not(.highlighttable) {
     gap: 5px;
 }
 
-.dropdown-toggle:active {
-    filter: brightness(90%);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
 .dropdown-toggle::after {
     content: '';
     border: solid currentColor;
@@ -953,6 +953,7 @@ html:not(.js) .content-card table:not(.highlighttable) {
     top: 100%;
     left: 0;
     margin-top: 6px;
+    width: max-content;
     min-width: 200px;
     border-radius: var(--radius);
     background: var(--dropdown-panel-bg);
@@ -1250,6 +1251,8 @@ html:not(.js) .content-card table:not(.highlighttable) {
 
 .navbar.nav-collapsed .dropdown-menu {
     position: static;
+    width: auto;
+    min-width: 0;
     margin-top: 0;
     margin-left: 12px;
     background: none;
