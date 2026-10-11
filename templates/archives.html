@@ -11,28 +11,22 @@ block title %}Blog{% endblock %} {% block page_title %}
     AUTHORS_URL|default('authors.html') if 'authors' in DIRECT_TEMPLATES and
     AUTHORS_SAVE_AS|default('authors.html') else '' %} {% if categories_url or
     tags_url or authors_url %}
-    <ul class="term-list browse-links">
-        {% if categories_url %}
-        <li><a href="{{ SITEURL }}/{{ categories_url }}">Categories</a></li>
-        {% endif %} {% if tags_url %}
-        <li><a href="{{ SITEURL }}/{{ tags_url }}">Tags</a></li>
-        {% endif %} {% if authors_url %}
-        <li><a href="{{ SITEURL }}/{{ authors_url }}">Authors</a></li>
-        {% endif %}
-    </ul>
+    <div class="browse">
+        <p class="card-label" id="browse-label">Browse by</p>
+        <ul class="term-list" aria-labelledby="browse-label">
+            {% if categories_url %}
+            <li><a href="{{ SITEURL }}/{{ categories_url }}">Categories</a></li>
+            {% endif %} {% if tags_url %}
+            <li><a href="{{ SITEURL }}/{{ tags_url }}">Tags</a></li>
+            {% endif %} {% if authors_url %}
+            <li><a href="{{ SITEURL }}/{{ authors_url }}">Authors</a></li>
+            {% endif %}
+        </ul>
+    </div>
     {% endif %}
     <ul class="article-list">
         {% for article in articles_page.object_list %}
-        <li>
-            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-            <p class="article-meta">
-                {{ article.locale_date }}{% if article.category %} &middot;
-                <a href="{{ SITEURL }}/{{ article.category.url }}"
-                    >{{ article.category }}</a
-                >{% endif %}
-            </p>
-            {% if article.summary %} {{ article.summary }} {% endif %}
-        </li>
+        <li>{{ macros.article_item(article) }}</li>
         {% endfor %}
     </ul>
     {{ macros.pagination(articles_paginator, articles_page,

@@ -16,21 +16,36 @@ endblock %} {% block og_type %}article{% endblock %} {% block extra_head %}
 <meta property="article:tag" content="{{ tag }}" />
 {% endfor %} {% endblock extra_head %} {% block page_title %}
 <h1>{{ article.title }}</h1>
-<p class="article-meta">
-    {{ article.locale_date }}{% if article.category %} &middot;
-    <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a
-    >{% endif %}{% if AUTHOR_SAVE_AS and article.author %} &middot;
-    <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a
-    >{% endif %}
-</p>
 {% endblock %} {% block content %}
 <section id="content">
-    {{ article.content }} {% if TAG_SAVE_AS and article.tags %}
-    <ul class="term-list article-tags">
-        {% for tag in article.tags %}
-        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
-        {% endfor %}
-    </ul>
+    {% set show_author = AUTHOR_SAVE_AS and article.author %}
+    <p class="article-meta">
+        {% if show_author %}By
+        <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a
+        > &middot; {% endif %}Published
+        <time datetime="{{ article.date.isoformat() }}"
+            >{{ article.locale_date }}</time
+        >
+    </p>
+    {{ article.content }} {% set show_tags = TAG_SAVE_AS and article.tags %} {%
+    if article.category or show_tags %}
+    <div class="article-footer">
+        {% if article.category %}
+        <p class="article-meta article-category">
+            Posted in
+            <a href="{{ SITEURL }}/{{ article.category.url }}"
+                >{{ article.category }}</a
+            >
+        </p>
+        {% endif %} {% if show_tags %}
+        <p class="card-label" id="article-tags-label">Tags</p>
+        <ul class="term-list article-tags" aria-labelledby="article-tags-label">
+            {% for tag in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
     {% endif %}
 </section>
 {% endblock %}

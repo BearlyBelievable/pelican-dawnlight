@@ -5,16 +5,7 @@ block title %}{{ tag.name|striptags }}{% endblock %} {% block page_title %}
 <section id="content">
     <ul class="article-list">
         {% for article in articles_page.object_list %}
-        <li>
-            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-            <p class="article-meta">
-                {{ article.locale_date }}{% if article.category %} &middot;
-                <a href="{{ SITEURL }}/{{ article.category.url }}"
-                    >{{ article.category }}</a
-                >{% endif %}
-            </p>
-            {% if article.summary %} {{ article.summary }} {% endif %}
-        </li>
+        <li>{{ macros.article_item(article) }}</li>
         {% endfor %}
     </ul>
     {{ macros.pagination(articles_paginator, articles_page,

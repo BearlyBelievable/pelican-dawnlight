@@ -1,3 +1,22 @@
+{% macro article_item(article) %}
+<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+<p class="article-meta">
+    {% if AUTHOR_SAVE_AS and article.author %}By
+    <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a
+    > &middot; {% endif %}Published
+    <time datetime="{{ article.date.isoformat() }}"
+        >{{ article.locale_date }}</time
+    >
+</p>
+{% if article.summary %} {{ article.summary }} {% endif %} {% if
+article.category %}
+<p class="article-meta article-category">
+    Posted in
+    <a href="{{ SITEURL }}/{{ article.category.url }}"
+        >{{ article.category }}</a
+    >
+</p>
+{% endif %} {% endmacro %}
 {% macro nav_group(label, items, current, view_all_url=None,
 view_all_save_as=None) %} {% set group_active = (items | selectattr('save_as',
 'equalto', current) | list | length > 0) or (view_all_save_as and
@@ -36,20 +55,11 @@ view_all_save_as == current) %}
 </div>
 {% endmacro %} {% macro recent_posts(articles, count=3, heading='Recent posts',
 view_all_url=None) %}
-<section id="content">
+<section id="content" class="recent-posts">
     <h2>{{ heading }}</h2>
     <ul class="article-list">
         {% for article in articles[:count] %}
-        <li>
-            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-            <p class="article-meta">
-                {{ article.locale_date }}{% if article.category %} &middot;
-                <a href="{{ SITEURL }}/{{ article.category.url }}"
-                    >{{ article.category }}</a
-                >{% endif %}
-            </p>
-            {% if article.summary %} {{ article.summary }} {% endif %}
-        </li>
+        <li>{{ article_item(article) }}</li>
         {% endfor %}
     </ul>
     <a class="btn-link" href="{{ view_all_url or (SITEURL ~ '/blog/archives') }}"
