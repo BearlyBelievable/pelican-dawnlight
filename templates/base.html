@@ -5,16 +5,24 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}</title>
+        <meta
+            name="theme-color"
+            content="#f8f0cb"
+            media="(prefers-color-scheme: light)"
+        />
+        <meta
+            name="theme-color"
+            content="#f2c48f"
+            media="(prefers-color-scheme: dark)"
+        />
+        <title>{% block title %}{{ SITENAME|striptags }}{% endblock %}{% if self.title()|trim != SITENAME|striptags %} | {{ SITENAME|striptags }}{% endif %}</title>
         <meta
             name="description"
             content="{% block meta_description %}{{ SITE_DESCRIPTION }}{% endblock %}"
         />
-        <link
-            rel="icon"
-            type="image/png"
-            href="{{ SITEURL }}/{{ SITE_FAVICON }}"
-        />
+        {% if SITE_FAVICON %}
+        <link rel="icon" href="{{ SITEURL }}/{{ SITE_FAVICON }}" />
+        {% endif %}
         <meta property="og:site_name" content="{{ SITENAME|striptags }}" />
         <meta
             property="og:title"
@@ -28,26 +36,42 @@
             property="og:type"
             content="{% block og_type %}website{% endblock %}"
         />
-        <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}" />
+        {% set canonical_path = output_file[:-10] if output_file == 'index.html'
+        or output_file.endswith('/index.html') else output_file %}
+        <link rel="canonical" href="{{ SITEURL }}/{{ canonical_path }}" />
+        {% if OG_LOCALE %}
+        <meta property="og:locale" content="{{ OG_LOCALE }}" />
+        {% endif %}
+        <meta property="og:url" content="{{ SITEURL }}/{{ canonical_path }}" />
+        {% set social_image = SITE_OG_IMAGE|default('') %} {% set
+        social_image_url = social_image if social_image[:4] == 'http' else
+        SITEURL ~ '/' ~ social_image %} {% if social_image %}
+        <meta property="og:image" content="{{ social_image_url }}" />
+        {% if SITE_OG_IMAGE_ALT %}
+        <meta property="og:image:alt" content="{{ SITE_OG_IMAGE_ALT }}" />
+        {% endif %} {% endif %}
         <meta
-            property="og:image"
-            content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/pictures/logoblack.png"
+            name="twitter:card"
+            content="{% if social_image %}summary_large_image{% else %}summary{% endif %}"
         />
-        <meta name="twitter:card" content="summary_large_image" />
+        {% if TWITTER_SITE %}
+        <meta name="twitter:site" content="@{{ TWITTER_SITE }}" />
+        {% endif %}
         <meta name="twitter:title" content="{{ self.og_title() }}" />
         <meta
             name="twitter:description"
             content="{{ self.meta_description() }}"
         />
-        <meta
-            name="twitter:image"
-            content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/pictures/logoblack.png"
-        />
+        {% if social_image %}
+        <meta name="twitter:image" content="{{ social_image_url }}" />
+        {% if SITE_OG_IMAGE_ALT %}
+        <meta name="twitter:image:alt" content="{{ SITE_OG_IMAGE_ALT }}" />
+        {% endif %} {% endif %}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Karla:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Karla:wght@400;500;600;700&family=Inter:wght@400;600;700&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap"
         />
         <link
             rel="stylesheet"
@@ -57,11 +81,16 @@
             defer
             src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/main.js"
         ></script>
+        {% set site_host = SITEURL.split('//')[-1].rstrip('/')|replace('"', '')
+        %}
         <style>
-            :root {
-                --logo-mask: url('{{ SITEURL }}/{{ SITELOGO }}');
+            a[href^='http']:not([href^="http://{{ site_host }}/"]):not([href^="https://{{ site_host }}/"]):not(:has(> img)) {
+                --link-ext: '' / var(--link-ext-label, '');
             }
         </style>
+        <script type="application/json" id="theme-strings">
+            {% include 'strings.json' %}
+        </script>
         {% if FEED_ALL_ATOM %}
         <link
             href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
@@ -80,15 +109,26 @@
         head %}
         <script>
             ;(function () {
-                try {
-                    var stored = localStorage.getItem('miatsuco-theme')
-                    if (stored === 'dark' || stored === 'light') {
-                        document.documentElement.setAttribute(
-                            'data-theme',
-                            stored
-                        )
+                var root = document.documentElement
+                root.classList.add('js')
+                window.syncTheme = function () {
+                    try {
+                        var stored = localStorage.getItem('theme-mode')
+                        if (stored === 'dark' || stored === 'light') {
+                            root.setAttribute('data-theme', stored)
+                        }
+                    } catch (e) {}
+                    var toggle = document.getElementById('themeToggle')
+                    if (toggle) {
+                        toggle.checked =
+                            (root.getAttribute('data-theme') ||
+                                (matchMedia('(prefers-color-scheme: dark)')
+                                    .matches
+                                    ? 'dark'
+                                    : 'light')) === 'dark'
                     }
-                } catch (e) {}
+                }
+                window.syncTheme()
             })()
         </script>
     </head>
@@ -99,7 +139,7 @@
         {} %} {% set nav_items = [] %} {% for pg in pages + hidden_pages %} {%
         if pg.section is defined and pg.status != 'hidden' %} {% if page_sections.update({pg.section:
         page_sections.get(pg.section, []) + [pg]}) %}{% endif %} {% elif
-        pg.status != 'hidden' %} {% if nav_items.append({'kind': 'link',
+        pg.status != 'hidden' and pg.footer is not defined and pg.save_as != 'index.html' %} {% if nav_items.append({'kind': 'link',
         'order': pg.sortorder|default('999')|string, 'page': pg}) %}{% endif %}
         {% endif %} {% endfor %} {% for section, section_pages in
         page_sections.items() %} {% set section_order = (section_pages |
@@ -112,9 +152,13 @@
                 <a
                     class="logo"
                     href="{{ SITEURL }}/"
-                    aria-label="{{ SITENAME }}"
-                    ><span class="logo-mark"></span
-                ></a>
+                    >{% if SITELOGO %}<img
+                        class="logo-image"
+                        src="{{ SITEURL }}/{{ SITELOGO }}"
+                        alt="{{ SITENAME|striptags }}"
+                    />{% else %}<span class="logo-text">{{ SITENAME }}</span
+                    >{% endif %}</a
+                >
                 <nav class="nav-links" id="navLinks" aria-label="Primary">
                     {% set is_home = output_file == 'index.html' %}
                     <a
@@ -164,12 +208,16 @@
                             type="checkbox"
                             role="switch"
                             id="themeToggle"
+                            autocomplete="off"
                             class="theme-toggle-input"
                             aria-label="Dark mode"
                         />
                         <label for="themeToggle" class="theme-toggle-slider">
                             <span class="theme-toggle-thumb"></span>
                         </label>
+                        <script>
+                            window.syncTheme()
+                        </script>
                     </div>
                     <button
                         class="nav-toggle"

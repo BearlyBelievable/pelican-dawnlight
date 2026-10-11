@@ -3,6 +3,24 @@ block title %}Blog{% endblock %} {% block page_title %}
 <h1>Blog</h1>
 {% endblock %} {% block content %}
 <section id="content">
+    {% set categories_url = CATEGORIES_URL|default('categories.html') if
+    'categories' in DIRECT_TEMPLATES and
+    CATEGORIES_SAVE_AS|default('categories.html') else '' %} {% set tags_url =
+    TAGS_URL|default('tags.html') if 'tags' in DIRECT_TEMPLATES and
+    TAGS_SAVE_AS|default('tags.html') else '' %} {% set authors_url =
+    AUTHORS_URL|default('authors.html') if 'authors' in DIRECT_TEMPLATES and
+    AUTHORS_SAVE_AS|default('authors.html') else '' %} {% if categories_url or
+    tags_url or authors_url %}
+    <ul class="term-list browse-links">
+        {% if categories_url %}
+        <li><a href="{{ SITEURL }}/{{ categories_url }}">Categories</a></li>
+        {% endif %} {% if tags_url %}
+        <li><a href="{{ SITEURL }}/{{ tags_url }}">Tags</a></li>
+        {% endif %} {% if authors_url %}
+        <li><a href="{{ SITEURL }}/{{ authors_url }}">Authors</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
     <ul class="article-list">
         {% for article in articles_page.object_list %}
         <li>
